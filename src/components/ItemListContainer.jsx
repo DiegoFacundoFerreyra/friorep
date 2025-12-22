@@ -61,3 +61,5 @@
 //✔ Muestra mensaje base
 //✔ Agrega la categoría si existe
 //✔ Capitaliza el texto
+
+//Render del listado, 📦 Pasa los productos al componente visual: <ItemList data={data} />
