@@ -137,7 +137,7 @@ export const product = [
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
     category: "Equipos de aire",
-    subcategory: "Piso-techo",
+    subcategory: "Piso/techo",
     stock: 20,
     price: 3020000,
     img: "/destacados/15inverter.png",
@@ -149,7 +149,7 @@ export const product = [
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
     category: "Equipos de aire",
-    subcategory: "Piso-techo",
+    subcategory: "Piso/techo",
     stock: 20,
     price: 3504000,
     img: "/destacados/15inverter.png",
@@ -161,7 +161,7 @@ export const product = [
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
     category: "Equipos de aire",
-    subcategory: "Piso-techi",
+    subcategory: "Piso/techo",
     stock: 20,
     price: 3881000,
     img: "/destacados/18inverter.png",
@@ -184,7 +184,7 @@ export const getProducts = () => {
 export const getOneProduct = (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      let prodcut = products.find((item) => item.id === Number(id));
+      let product = products.find((item) => item.id === Number(id));
       resolve(product);
     }, 2500);
   });
