@@ -26,3 +26,23 @@
 //normalmente desde el CartContext
 //Ejemplo típico:
 //<CartWidget counter={cart.length} />
+
+const CartWidget = (props) => {
+  return (
+    <div>
+      <span>
+        <a href="/">
+          <img
+            src="../carrito.png"
+            alt="Carrito"
+            name="Carrito"
+            style={{ width: "40px", height: "40px" }}
+          />
+        </a>
+      </span>
+      <small className="cart-counter"> {props.counter}</small>
+    </div>
+  );
+};
+
+export default CartWidget;
