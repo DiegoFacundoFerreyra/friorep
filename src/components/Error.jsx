@@ -34,3 +34,22 @@
 //Normalmente se define en el Router principal:
 //<Route path="*" element={<Error />} />
 //👉 El * captura cualquier ruta inexistente.
+
+import { Link } from "react-router-dom";
+import "../css/Error.css";
+const Error = () => {
+  return (
+    <div>
+      <h2 style={{ fontSize: "80px" }}>Segmento inexistente!! 🤷‍♂️</h2>
+      <button>
+        <Link
+          style={{ textDecoration: "none", color: "green", fontSize: "40px" }}
+        >
+          Volver a la pagina principal...
+        </Link>
+      </button>
+    </div>
+  );
+};
+
+export default Error;

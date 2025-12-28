@@ -30,3 +30,19 @@
 //¿Dónde se usa este componente?
 //Normalmente aparece en:
 //🛒 CartContainer // !cart.length ? <EmptyCart /> : <CartView />
+
+import { Link } from "react-router-dom";
+import "../css/EmptyCart.css";
+
+const EmptyCart = () => {
+  return (
+    <div>
+      <h2>Tu carrito esta vacio!😱</h2>
+      <h3>
+        <Link to="/">Te invitamos a ver nuestros productos...</Link>
+      </h3>
+    </div>
+  );
+};
+
+export default EmptyCart;
