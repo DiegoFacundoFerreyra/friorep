@@ -67,3 +67,5 @@
 //Provider y value: <CartContext.Provider value={{ ... }}>
 //📌 Acá decidís qué funciones y datos son públicos
 //Estás exponiendo: cart, funciones y totales.
+
+export default CartContext;
