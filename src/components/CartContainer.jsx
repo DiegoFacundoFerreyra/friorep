@@ -16,7 +16,7 @@
 //React decide automáticamente qué renderizar
 
 import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+/* import { CartContext } from "../context/CartContext"; */
 import EmptyCart from "./EmptyCart";
 import CartView from "./CartView";
 
