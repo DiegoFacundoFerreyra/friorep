@@ -70,10 +70,7 @@ const CartView = () => {
                 Subtotal: ${compra.price * compra.quantity}
               </p>
             </div>
-            <button
-              className="btnx"
-              onDoubleClick={() => removeItem(compra.id)}
-            >
+            <button className="btnx" onClick={() => removeItem(compra.id)}>
               X
             </button>
           </div>

@@ -3,7 +3,6 @@ import CartWidget from "./CartWidget";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  const arrayList = [{ name: "random" }];
   return (
     <nav className="navContainer">
       <NavLink to="/">
@@ -11,28 +10,28 @@ const NavBar = () => {
           style={{ width: "120px", height: "64px" }}
           src="/friorep.png"
           alt="FrioRep"
-          name="FrioRep"
         />
       </NavLink>
-      <NavLink
-        className="links"
-        to="/category/Equipos de aire/ON/OFF(convencional)"
-      >
+      <NavLink className="links" to="/category/aires/convencional">
         Aires acondicionados ON/OFF, convencionales.
       </NavLink>
-      <NavLink className="links" to="/category/Equipos de aire/Inverter">
+      <NavLink className="links" to="/category/aires/inverter">
         Aires acondicionados Inverter.
       </NavLink>
-      <NavLink className="links" to="/category/Equipos de aire/Black Inverter">
+      <NavLink className="links" to="/category/aires/black">
         Aires acondicionados Black Inverter.
       </NavLink>
-      <NavLink className="links" to="/category/Equipos de aire/piso/techo">
+      <NavLink className="links" to="/category/aires/pisotecho">
         Aires acondicionados tipo piso/techo.
       </NavLink>
-      <NavLink className="contador" to="/cart">
-        <CartWidget lata={arrayList} />
-      </NavLink>
-      <a href="https://wa.me/34168201356">
+      {/* <NavLink className="contador" to="/cart">
+        <CartWidget counter={cart.length} />
+      </NavLink> */}
+      <a
+        href="https://wa.me/34168201356"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className="img-wh" src="/whatsapp.png" alt="whatsapp" />
       </a>
     </nav>

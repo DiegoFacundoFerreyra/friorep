@@ -41,13 +41,13 @@ const Error = () => {
   return (
     <div>
       <h2 style={{ fontSize: "80px" }}>Segmento inexistente!! 🤷‍♂️</h2>
-      <button>
-        <Link
-          style={{ textDecoration: "none", color: "green", fontSize: "40px" }}
-        >
-          Volver a la pagina principal...
-        </Link>
-      </button>
+      <Link
+        to="/"
+        className="error-btn"
+        style={{ textDecoration: "none", color: "green", fontSize: "40px" }}
+      >
+        Volver a la pagina principal...
+      </Link>
     </div>
   );
 };

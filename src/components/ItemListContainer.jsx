@@ -63,3 +63,38 @@
 //✔ Capitaliza el texto
 
 //Render del listado, 📦 Pasa los productos al componente visual: <ItemList data={data} />
+
+import "../css/ItemListContainer.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProducts } from "../mock/AsynkMock";
+import ItemList from "./ItemList";
+
+const ItemListContainer = ({ mensaje }) => {
+  const [data, setData] = useState([]);
+  const { category, subcategory } = useParams();
+
+  useEffect(() => {
+    getProducts()
+      .then((res) => {
+        if (category && subcategory) {
+          const filtred = res.filter(
+            (prod) =>
+              prod.category === category && prod.subcategory === subcategory
+          );
+          setData(filtred);
+        } else {
+          setData(res);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, [category, subcategory]);
+  return (
+    <div>
+      <h2 className="text-succes">{mensaje}</h2>
+      <ItemList data={data} />
+    </div>
+  );
+};
+
+export default ItemListContainer;

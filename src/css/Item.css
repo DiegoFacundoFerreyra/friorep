@@ -1,0 +1,59 @@
+.card-item {
+  width: 250px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.card-item-img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.card-item-title {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.card-item-price {
+  font-size: 20px;
+  color: green;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.card-item-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.card-item-btn:hover {
+  background-color: #005ec4;
+}
+
+.item-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  flex-wrap: wrap;
+}

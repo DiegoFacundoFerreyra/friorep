@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContainer from "./components/CartContainer";
 /* import CheckOut from "./components/CheckOut"; */
 import Error from "./components/Error";
-/* import ItemDetailContainer from "./components/ItemDetailContainer";
-import ItemListContainer from "./components/ItemListContainer"; */
+/* import ItemDetailContainer from "./components/ItemDetailContainer"; */
+import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -14,19 +14,22 @@ function App() {
       {/*  <CartProvider> */}
       <NavBar />
       <Routes>
-        {/*   <Route
+        <Route
           path="/"
           element={
             <ItemListContainer
               mensaje={"Bienvenidos a la tienda online de Frio Rep"}
             />
           }
-        /> */}
-        {/*  <Route path="/category/:type" element={<ItemListContainer />} /> */}
+        />
+        <Route
+          path="/category/:categoy/:subcategory"
+          element={<ItemListContainer />}
+        />
         {/*  path="/category/:category/:subcategory" ES LO QUE ME RECOMIENDA LA IA */}
-        {/*   <Route path="/item/:id" element={<ItemDetailContainer />} />
+        {/*   <Route path="/item/:id" element={<ItemDetailContainer />} /> */}
         <Route path="/cart" element={<CartContainer />} />
-        <Route path="/checkout" element={<CheckOut />} /> */}
+        {/*  <Route path="/checkout" element={<CheckOut />} />  */}
         <Route path="*" element={<Error />} />
       </Routes>
       {/* </CartProvider> */}
