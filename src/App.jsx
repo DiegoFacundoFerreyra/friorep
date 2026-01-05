@@ -23,10 +23,9 @@ function App() {
           }
         />
         <Route
-          path="/category/:categoy/:subcategory"
+          path="/category/:type/:subcategory"
           element={<ItemListContainer />}
         />
-        {/*  path="/category/:category/:subcategory" ES LO QUE ME RECOMIENDA LA IA */}
         {/*   <Route path="/item/:id" element={<ItemDetailContainer />} /> */}
         <Route path="/cart" element={<CartContainer />} />
         {/*  <Route path="/checkout" element={<CheckOut />} />  */}

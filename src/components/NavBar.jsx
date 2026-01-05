@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="navContainer">
+    <nav className="nav-container">
       <NavLink to="/">
         <img
           style={{ width: "120px", height: "64px" }}
@@ -27,6 +27,11 @@ const NavBar = () => {
       {/* <NavLink className="contador" to="/cart">
         <CartWidget counter={cart.length} />
       </NavLink> */}
+      <img
+        style={{ width: "120px", height: "64px" }}
+        src="/fabra.png"
+        alt="Fabra"
+      />
       <a
         href="https://wa.me/34168201356"
         target="_blank"
@@ -34,6 +39,9 @@ const NavBar = () => {
       >
         <img className="img-wh" src="/whatsapp.png" alt="whatsapp" />
       </a>
+      {/*  <div>
+        PROBABLEMENTE VAYA LA IMAGEN DEL CARRITO
+      </div> */}
     </nav>
   );
 };

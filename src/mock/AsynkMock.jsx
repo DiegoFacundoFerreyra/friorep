@@ -177,7 +177,7 @@ export const getProducts = () => {
       } else {
         resolve(products);
       }
-    }, 3000);
+    }, 2000);
   });
 };
 
@@ -186,6 +186,6 @@ export const getOneProduct = (id) => {
     setTimeout(() => {
       let product = products.find((item) => item.id === Number(id));
       resolve(product);
-    }, 3000);
+    }, 2000);
   });
 };

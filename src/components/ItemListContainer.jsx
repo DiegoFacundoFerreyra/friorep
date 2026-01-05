@@ -72,15 +72,14 @@ import ItemList from "./ItemList";
 
 const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);
-  const { category, subcategory } = useParams();
+  const { type, subcategory } = useParams();
 
   useEffect(() => {
     getProducts()
       .then((res) => {
-        if (category && subcategory) {
+        if (type && subcategory) {
           const filtred = res.filter(
-            (prod) =>
-              prod.category === category && prod.subcategory === subcategory
+            (prod) => prod.category === type && prod.subcategory === subcategory
           );
           setData(filtred);
         } else {
@@ -88,7 +87,7 @@ const ItemListContainer = ({ mensaje }) => {
         }
       })
       .catch((error) => console.log(error));
-  }, [category, subcategory]);
+  }, [type, subcategory]);
   return (
     <div>
       <h2 className="text-succes">{mensaje}</h2>

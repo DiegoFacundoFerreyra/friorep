@@ -1,23 +1,26 @@
 .nav-container {
   background-color: skyblue;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  height: 60px;
+  height: 100px;
 }
 
 .links {
   text-decoration: none;
-  color: rgb(57, 238, 57);
-  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  font-size: 32px;
   cursor: pointer;
 }
 
 .active {
   text-decoration: none;
   color: whitesmoke;
-  font-size: 40px;
+  font-size: 32px;
   cursor: pointer;
 }
 
