@@ -36,7 +36,7 @@
 //solo los muestra
 //Eso es buena separación de responsabilidades.
 
-import "..css/Item.css";
+import "../css/Item.css";
 import { Link } from "react-router-dom";
 
 const Item = ({ prod }) => {

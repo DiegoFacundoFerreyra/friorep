@@ -1,11 +1,11 @@
-export const product = [
+export const products = [
   {
     id: 1,
     name: "2600 watts ON/OFF",
     description:
       "Aire acondicionado tipo split, marca Electra de 2600 watts ON/FF con 2 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "ON/OFF(convencional)",
+    category: "aires",
+    subcategory: "convencional",
     stock: 40,
     price: 661000,
     img: "/destacados/onoff1.png",
@@ -16,8 +16,8 @@ export const product = [
     name: "3200 watts ON/OFF",
     description:
       "Aire acondicionado tipo split, marca Electra de 3200 watts ON/FF con 2 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "ON/OFF(convencional)",
+    category: "aires",
+    subcategory: "convencional",
     stock: 40,
     price: 685000,
     img: "/destacados/onoff2.png",
@@ -28,8 +28,8 @@ export const product = [
     name: "5200 watts ON/OFF",
     description:
       "Aire acondicionado tipo split, marca Electra de 5200 watts ON/FF con 2 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "ON/OFF(convencional)",
+    category: "aires",
+    subcategory: "convencional",
     stock: 40,
     price: 889000,
     img: "/destacados/onoff3.png",
@@ -40,8 +40,8 @@ export const product = [
     name: "6500 watts ON/OFF",
     description:
       "Aire acondicionado tipo split, marca Electra de 6500 watts ON/FF con 2 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "ON/OFF(convencional)",
+    category: "aires",
+    subcategory: "convencional",
     stock: 40,
     price: 1012000,
     img: "/destacados/onoff4.png",
@@ -52,8 +52,8 @@ export const product = [
     name: "2600 watts Inverter",
     description:
       "Aire acondicionado tipo split, marca Electra de 2600 watts con tecnologia Inverter y 3 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Inverter",
+    category: "aires",
+    subcategory: "inverter",
     stock: 40,
     price: 689000,
     img: "/destacados/inverter1.png",
@@ -64,8 +64,8 @@ export const product = [
     name: "3500 watts Inverter",
     description:
       "Aire acondicionado tipo split, marca Electra de 3500 watts con tecnologia Inverter y 3 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Inverter",
+    category: "aires",
+    subcategory: "inverter",
     stock: 40,
     price: 778000,
     img: "/destacados/inverter2.png",
@@ -76,8 +76,8 @@ export const product = [
     name: "5300 watts Inverter",
     description:
       "Aire acondicionado tipo split, marca Electra de 5300 watts con tecnologia Inverter y 3 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Inverter",
+    category: "aires",
+    subcategory: "inverter",
     stock: 40,
     price: 984000,
     img: "/destacados/inverter3.png",
@@ -88,8 +88,8 @@ export const product = [
     name: "6900 watts Inverter",
     description:
       "Aire acondicionado tipo split, marca Electra de 6900 watts con tecnologia Inverter y 3 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Inverter",
+    category: "aires",
+    subcategory: "inverter",
     stock: 40,
     price: 1142000,
     img: "/destacados/inverter4.png",
@@ -100,8 +100,8 @@ export const product = [
     name: "3500 watts Black",
     description:
       "Aire acondicionado tipo split, marca Electra de 3500 watts inverter con 3 años de garantia de fabrica. Este equipo es de color negro y cuenta con WI FI para que lo prendas desde donde quieras y cuando llegues, el lugar tenga la temperatura que tanto queres. Tambien tiene un sistema de filtros especiales que te purifican el aire",
-    category: "Equipos de aire",
-    subcategory: "Black Inverter",
+    category: "aires",
+    subcategory: "black",
     stock: 40,
     price: 914000,
     img: "/destacados/Xblackch.png",
@@ -112,8 +112,8 @@ export const product = [
     name: "5300 watts Black",
     description:
       "Aire acondicionado tipo split, marca Electra de 3500 watts inverter con 3 años de garantia de fabrica. Este equipo es de color negro y cuenta con WI FI para que lo prendas desde donde quieras y cuando llegues, el lugar tenga la temperatura que tanto queres. Tambien tiene un sistema de filtros especiales que te purifican el aire",
-    category: "Equipos de aire",
-    subcategory: "Black Inverter",
+    category: "aires",
+    subcategory: "black",
     stock: 40,
     price: 1441000,
     img: "/destacados/Xblackgde.png",
@@ -124,8 +124,8 @@ export const product = [
     name: "15000 frigorias ON/OFF",
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 15000 frigorias ON/FF con 1 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Piso-techo",
+    category: "aires",
+    subcategory: "pisotecho",
     stock: 20,
     price: 2785000,
     img: "/destacados/15onoff.png",
@@ -136,8 +136,8 @@ export const product = [
     name: "18000 frigorias ON/OFF",
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Piso/techo",
+    category: "aires",
+    subcategory: "pisotecho",
     stock: 20,
     price: 3020000,
     img: "/destacados/15inverter.png",
@@ -148,8 +148,8 @@ export const product = [
     name: "15000 frigorias Inverter",
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Piso/techo",
+    category: "aires",
+    subcategory: "pisotecho",
     stock: 20,
     price: 3504000,
     img: "/destacados/15inverter.png",
@@ -160,8 +160,8 @@ export const product = [
     name: "18000 frigorias Inverter",
     description:
       "Aire acondicionado tipo piso-techo, marca Electra de 18000 frigorias ON/FF con 1 años de garantia de fabrica",
-    category: "Equipos de aire",
-    subcategory: "Piso/techo",
+    category: "aires",
+    subcategory: "pisotecho",
     stock: 20,
     price: 3881000,
     img: "/destacados/18inverter.png",
@@ -177,7 +177,7 @@ export const getProducts = () => {
       } else {
         resolve(products);
       }
-    }, 2500);
+    }, 3000);
   });
 };
 
@@ -186,6 +186,6 @@ export const getOneProduct = (id) => {
     setTimeout(() => {
       let product = products.find((item) => item.id === Number(id));
       resolve(product);
-    }, 2500);
+    }, 3000);
   });
 };
