@@ -85,3 +85,40 @@
 //3️⃣ Eliminar console.log(detalle)
 
 //4️⃣ Mostrar mensaje “Agregado con éxito” con Swal
+
+import "../css/ItemDetail.css";
+//import ItemCount from "./ItemCount";
+import { useContext, useState } from "react";
+//import {CartContext} "../context/CartContext";
+import { Link } from "react-router-dom";
+
+const ItemDetail = ({ detalle }) => {
+  const [purchase, setPurchase] = useState(false);
+  //const {addItems, totalItems} = useContext(CartContext);
+  const onAdd = (cantidad) => {
+    addItem(detalle, cantidad);
+    setPurchase(true);
+  };
+
+  const stockActual = detalle.sock - totalItems(detalle.id);
+  return (
+    <div className="muestra-detalle">
+      <div className="card-item">
+        <h2>{detalle.name}</h2>
+        <img src={detalle.img} alt={detalle.name} className="card-item-img" />
+        <span>${detalle.price}</span>
+        <p>{detalle.description}</p>
+        <small>Cantidad disponible: {stockActual} unidades</small>
+        {purchase ? (
+          <Link to="/cart" className="btn-exito">
+            Ir al carrito
+          </Link>
+        ) : (
+          <ItemCount stock={stockActual} onAdd={onAdd} />
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ItemDetail;

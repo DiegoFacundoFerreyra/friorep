@@ -96,3 +96,22 @@
 //2️⃣ Mostrar un componente Error en vez de JSX inline
 //3️⃣ Manejar errores con Swal
 //4️⃣ Tipar mejor el estado inicial: useState(null)
+
+import { useEffect, useState } from "react";
+import ItemDetail from "./ItemDetail";
+import { getOneProduct, getProducts } from "../mock/AsynkMock";
+import { Link, useParams } from "react-router-dom";
+//import LoaderComponent from "./LoaderComponents";
+
+const ItemDetailContainer = () => {
+  const [detalle, setDetalle] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    getOneProduct(id)
+      .then((res) => setDetalle(res))
+      .catch((error) => console.log(error));
+  }, [id]);
+  return <ItemDetail detalle={detalle} />;
+};
+
+export default ItemDetailContainer;
