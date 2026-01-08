@@ -24,9 +24,11 @@ const NavBar = () => {
       <NavLink className="links" to="/category/aires/pisotecho">
         Aires acondicionados tipo piso/techo.
       </NavLink>
-      {/* <NavLink className="contador" to="/cart">
-        <CartWidget counter={cart.length} />
-      </NavLink> */}
+      {
+        <NavLink className="contador" to="/cart">
+          <CartWidget counter={cart.length} />
+        </NavLink>
+      }
       <img
         style={{ width: "120px", height: "64px" }}
         src="/fabra.png"
@@ -39,9 +41,9 @@ const NavBar = () => {
       >
         <img className="img-wh" src="/whatsapp.png" alt="whatsapp" />
       </a>
-      {/*  <div>
-        PROBABLEMENTE VAYA LA IMAGEN DEL CARRITO
-      </div> */}
+      <div>
+        <img className="img-cart" src="/carrito.png" alt="carrito de compras" />
+      </div>
     </nav>
   );
 };

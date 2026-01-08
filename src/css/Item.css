@@ -9,7 +9,7 @@
 }
 
 .card-item:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(1, 97, 121, 0.25);
 }
 
