@@ -58,24 +58,43 @@
 import "../css/ItemCount.css";
 import { useState } from "react";
 
-const ItemCount =({stock, onAdd}) => {
-const [count, setCount] = useState(1);
+const ItemCount = ({ stock, onAdd }) => {
+  const [count, setCount] = useState(1);
 
-const sumar = () => {
+  const sumar = () => {
     if (count < stock) {
-        setCount(count + 1);
+      setCount(count + 1);
     }
-};
+  };
 
-const restar =() => {
-    if (count > 0 ) {
-        setCount(count -1 );
+  const restar = () => {
+    if (count > 0) {
+      setCount(count - 1);
     }
+  };
+
+  return (
+    <>
+      {stock > 0 ? (
+        <div className="item-count">
+          <button className="btn-mas" onClick={sumar}>
+            +
+          </button>
+          <span className="btn-num">{count}</span>
+          <button className="btn-res" onClick={restar}>
+            -
+          </button>
+          <button
+            className="btn-add"
+            disabled={stock === 0}
+            onClick={() => onAdd(count)}
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      ) : (
+        <p>Sin stock disponible</p>
+      )}
+    </>
+  );
 };
-
-return (
-
-
-)
-
-}
