@@ -32,7 +32,7 @@
 //Botón para eliminar
 
 import React, { useContext } from "react";
-/*  import { CartContext } from "../context/CartContext";  */
+import { CartContext } from "../context/CartContext";
 import "../css/CartView.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";

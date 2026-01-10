@@ -1,8 +1,11 @@
 import "../css/NavBar.css";
 import CartWidget from "./CartWidget";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const NavBar = () => {
+  const { cart } = useContext(CartContext);
   return (
     <nav className="nav-container">
       <NavLink to="/">
@@ -24,16 +27,16 @@ const NavBar = () => {
       <NavLink className="links" to="/category/aires/pisotecho">
         Aires acondicionados tipo piso/techo.
       </NavLink>
-      {
-        <NavLink className="contador" to="/cart">
-          <CartWidget counter={cart.length} />
-        </NavLink>
-      }
       <img
         style={{ width: "120px", height: "64px" }}
         src="/fabra.png"
         alt="Fabra"
       />
+      {
+        <NavLink className="contador" to="/cart">
+          <CartWidget counter={cart.length} />
+        </NavLink>
+      }
       <a
         href="https://wa.me/34168201356"
         target="_blank"
@@ -41,9 +44,6 @@ const NavBar = () => {
       >
         <img className="img-wh" src="/whatsapp.png" alt="whatsapp" />
       </a>
-      <div>
-        <img className="img-cart" src="/carrito.png" alt="carrito de compras" />
-      </div>
     </nav>
   );
 };

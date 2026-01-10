@@ -67,5 +67,78 @@
 //Provider y value: <CartContext.Provider value={{ ... }}>
 //📌 Acá decidís qué funciones y datos son públicos
 //Estás exponiendo: cart, funciones y totales.
+import { createContext, useState, useEffect } from "react";
 
-export default CartContext;
+export const CartContext = createContext();
+const carritoInicial = JSON.parse(localStorage.getItem("cart")) || [];
+
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(carritoInicial);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addItem = (item, qty) => {
+    if (isInCart(item.id)) {
+      const updtatedCart = cart.map((product) => {
+        if (product.id === item.id) {
+          return { ...product, quantity: product.quantity + qty };
+        } else {
+          return product;
+        }
+      });
+      setCart(updtatedCart);
+    } else {
+      setCart([...cart, { ...item, quantity: qty }]);
+    }
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const removeItem = (id) => {
+    setCart(cart.filter((product) => product.id !== id));
+  };
+
+  const isInCart = (id) => {
+    return cart.some((product) => product.id === id);
+  };
+
+  const totalCantidad = cart.reduce(
+    (acc, product) => (acc += product.quantity),
+    0
+  );
+
+  const montoTotal = () => {
+    return cart.reduce(
+      (acc, product) => acc + product.price * product.quantity,
+      0
+    );
+  };
+
+  const totalItems = (id) => {
+    const itemInCart = cart.find((product) => product.id === id);
+    if (itemInCart) {
+      return itemInCart.quantity;
+    } else {
+      return 0;
+    }
+  };
+
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        clearCart,
+        removeItem,
+        addItem,
+        totalItems,
+        montoTotal,
+        totalCantidad,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
