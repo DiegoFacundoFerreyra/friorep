@@ -23,3 +23,22 @@
 //✔ Muestra el mensaje que recibe por props
 //✔ Permite usarlo en distintos contextos:
 //<LoaderComponent text="Cargando productos..." /> //<LoaderComponent text="Cargando detalle..." />
+
+const LoaderComponent = ({ text }) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "85vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <p>{text}</p>
+    </div>
+  );
+};
+
+export default LoaderComponent;
