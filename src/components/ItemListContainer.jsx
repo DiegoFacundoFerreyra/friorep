@@ -75,19 +75,22 @@ const ItemListContainer = ({ mensaje }) => {
   const { type, subcategory } = useParams();
 
   useEffect(() => {
-    getProducts()
-      .then((res) => {
+    const fetchProducts = async () => {
+      try {
+        let url = "https://tu-api.com/products";
         if (type && subcategory) {
-          const filtred = res.filter(
-            (prod) => prod.category === type && prod.subcategory === subcategory
-          );
-          setData(filtred);
-        } else {
-          setData(res);
+          url = `https://tu-api.com/products?category=${type}&subcategory=${subcategory}`;
         }
-      })
-      .catch((error) => console.log(error));
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProducts();
   }, [type, subcategory]);
+
   return (
     <div>
       <h2 className="text-succes">{mensaje}</h2>
