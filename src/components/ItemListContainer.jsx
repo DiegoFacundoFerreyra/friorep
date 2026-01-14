@@ -67,7 +67,7 @@
 import "../css/ItemListContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../mock/AsynkMock";
+import { getProducts, getProductsByCategory } from "../service/api";
 import ItemList from "./ItemList";
 
 const ItemListContainer = ({ mensaje }) => {
@@ -75,20 +75,15 @@ const ItemListContainer = ({ mensaje }) => {
   const { type, subcategory } = useParams();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let url = "https://tu-api.com/products";
-        if (type && subcategory) {
-          url = `https://tu-api.com/products?category=${type}&subcategory=${subcategory}`;
-        }
-        const response = await fetch(url);
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProducts();
+    if (type && subcategory) {
+      getProductsByCategory(type, subcategory)
+        .then((res) => setData(res))
+        .catch((error) => console.log(error));
+    } else {
+      getProducts()
+        .then((res) => setData(res))
+        .catch((error) => console.log(error));
+    }
   }, [type, subcategory]);
 
   return (

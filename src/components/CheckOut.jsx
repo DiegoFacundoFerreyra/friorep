@@ -107,14 +107,17 @@ import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import EmptyCart from "./EmptyCart";
+import { createOrder } from "../service/api";
 
 const CheckOut = () => {
   const [buyer, setBuyer] = useState({});
   const [validMail, setValidMail] = useState("");
   const [orderID, setOrderID] = useState(null);
   const [process, setProcess] = useState(false);
-  const { cart, clearCart } = useContext(CartContext);
   const [error, setError] = useState(null);
+
+  const { cart, clearCart } = useContext(CartContext);
+
   const buyerData = (e) => {
     setBuyer({
       ...buyer,
@@ -124,47 +127,55 @@ const CheckOut = () => {
 
   const finalizarCompra = async (e) => {
     e.preventDefault();
+
     if (!buyer.name || !buyer.surname || !buyer.email || !validMail) {
       setError("Por favor complete todos los campos");
-    } else if (buyer.email !== validMail) {
-      setError("Los correos no coinciden");
-    } else {
-      setError(null);
-      setProcess(true);
-      const orden = {
-        Comprador: buyer,
-        Items: cart,
-        total: cart.reduce(
-          (acc, product) => acc + product.price * product.quantity,
-          0
-        ),
-        fecha: new Date(),
-      };
-      try {
-        const response = await fetch("https://tu-api.com/orders", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(orden),
-        });
-        const data = await response.json();
-        setOrderID(data.id);
-        clearCart();
+      return;
+    }
 
-        Swal.fire({
-          icon: "success",
-          title: "¡Gracias por tu compra! 🛍️",
-          text: "Tu pedido ha sido procesado correctamente.",
-          confirmButtonColor: "#28a745",
-        });
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setProcess(false);
-      }
+    if (buyer.email !== validMail) {
+      setError("Los correos no coinciden");
+      return;
+    }
+
+    setError(null);
+    setProcess(true);
+
+    const orden = {
+      comprador: buyer,
+      items: cart,
+      total: cart.reduce(
+        (acc, product) => acc + product.price * product.quantity,
+        0
+      ),
+      fecha: new Date(),
+    };
+
+    try {
+      const res = await createOrder(orden);
+
+      setOrderID(res.id);
+      clearCart();
+
+      Swal.fire({
+        icon: "success",
+        title: "¡Gracias por tu compra! 🛍️",
+        text: "Tu pedido ha sido procesado correctamente.",
+        confirmButtonColor: "#28a745",
+      });
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "No se pudo generar la orden",
+      });
+    } finally {
+      setProcess(false);
     }
   };
+
+  // 🧺 Evita entrar al checkout con carrito vacío
   if (!cart.length && !orderID) {
     return <EmptyCart />;
   }
@@ -174,14 +185,16 @@ const CheckOut = () => {
       {orderID ? (
         <div className="order-complete">
           <p>
-            Su numero de orden es: <strong>{orderID}</strong>
+            Su número de orden es: <strong>{orderID}</strong>
           </p>
-          <Link to="/"> Volver al inicio</Link>
+          <Link to="/">Volver al inicio</Link>
         </div>
       ) : (
         <div>
           <h3>Complete sus datos</h3>
+
           {error && <p style={{ color: "red" }}>{error}</p>}
+
           <form onSubmit={finalizarCompra}>
             <input
               name="name"
@@ -212,6 +225,7 @@ const CheckOut = () => {
               onChange={(e) => setValidMail(e.target.value)}
             />
             <input type="tel" placeholder="Telefono" required />
+
             <button type="submit" disabled={process}>
               {process ? "Procesando pedido..." : "Generar orden de compra"}
             </button>

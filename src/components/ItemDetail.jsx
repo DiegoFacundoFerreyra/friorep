@@ -126,13 +126,20 @@ const ItemDetail = ({ detalle }) => {
 export default ItemDetail; */
 
 import "../css/ItemDetail.css";
-import { useState } from "react";
+import ItemCount from "./ItemCount";
+import { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ detalle }) => {
   const [purchase, setPurchase] = useState(false);
+  const { addItem, totalItems } = useContext(CartContext);
+  const onAdd = (cantidad) => {
+    addItem(detalle, cantidad);
+    setPurchase(true);
+  };
 
-  const stockActual = detalle.stock;
+  const stockActual = detalle.stock - totalItems(detalle.id);
 
   return (
     <div className="muestra-detalle">
@@ -142,11 +149,13 @@ const ItemDetail = ({ detalle }) => {
         <span>${detalle.price}</span>
         <p>{detalle.description}</p>
         <small>Cantidad disponible: {stockActual} unidades</small>
-        <div style={{ marginTop: "20px" }}>
+        {purchase ? (
           <Link to="/" className="volver">
             Volver al catálogo
           </Link>
-        </div>
+        ) : (
+          <ItemCount stock={stockActual} ondAdd={onAdd} />
+        )}
       </div>
     </div>
   );

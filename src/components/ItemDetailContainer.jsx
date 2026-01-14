@@ -98,20 +98,54 @@
 //4️⃣ Tipar mejor el estado inicial: useState(null)
 
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
-import { getOneProduct, getProducts } from "../mock/AsynkMock";
 import { Link, useParams } from "react-router-dom";
-//import LoaderComponent from "./LoaderComponents";
+import ItemDetail from "./ItemDetail";
+import LoaderComponent from "./LoaderComponents";
+import { getProductById } from "../service/api";
 
 const ItemDetailContainer = () => {
-  const [detalle, setDetalle] = useState({});
+  const [detalle, setDetalle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [invalid, setInvalid] = useState(false);
+
   const { id } = useParams();
+
   useEffect(() => {
-    getOneProduct(id)
-      .then((res) => setDetalle(res))
-      .catch((error) => console.log(error));
+    const fetchProduct = async () => {
+      setLoading(true);
+      setInvalid(false);
+      try {
+        const data = await getProductById(id);
+        setDetalle(data);
+      } catch (error) {
+        console.log(error);
+        setInvalid(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
   }, [id]);
-  return <ItemDetail detalle={detalle} />;
+
+  if (invalid) {
+    return (
+      <div>
+        <h2 style={{ color: "red" }}>El producto no existe</h2>
+        <Link to="/">Volver al inicio</Link>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {loading ? (
+        <LoaderComponent text="Cargando detalle..." />
+      ) : (
+        <ItemDetail detalle={detalle} />
+      )}
+    </>
+  );
 };
 
 export default ItemDetailContainer;
