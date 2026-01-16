@@ -38,7 +38,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CartView = () => {
-  const { cart, montoTotal, removeItem, clearCart } = useContext(CartContext);
+  const { cart, montoTotal, removeItem, clearCart, addItem } =
+    useContext(CartContext);
   const preClearCart = () => {
     Swal.fire({
       title: "¿Seguro que deseas vaciar el carrito?",
@@ -55,6 +56,36 @@ const CartView = () => {
     });
   };
 
+  const confirmRemoveItem = (id, name) => {
+    Swal.fire({
+      title: "¿Eliminar este producto?",
+      text: `Se quitará "${name}" del carrito`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeItem(id);
+        Swal.fire("Producto eliminado", "", "success");
+      }
+    });
+  };
+
+  const sumar = (producto) => {
+    if (producto.quantity < producto.stock) {
+      addItem(producto, 1);
+    }
+  };
+
+  const restar = (producto) => {
+    if (producto.quantity > 1) {
+      addItem(producto, -1);
+    } else {
+      removeItem(producto.id);
+    }
+  };
+
   return (
     <div className="cart-container">
       <h2 className="cart-title"> 🛒Tu compra</h2>
@@ -65,12 +96,19 @@ const CartView = () => {
             <div className="cart-info">
               <h3>{compra.name}</h3>
               <p>Precio: ${compra.price}</p>
-              <small>Cantidad:{compra.quantity} </small>
+              <div className="cart-counter-controls">
+                <button onClick={() => restar(compra)}>-</button>
+                <small>Cantidad:{compra.quantity} </small>
+                <button onClick={() => sumar(compra)}>+</button>
+              </div>
               <p className="cart-subtotal">
                 Subtotal: ${compra.price * compra.quantity}
               </p>
             </div>
-            <button className="btnx" onClick={() => removeItem(compra.id)}>
+            <button
+              className="btnx"
+              onClick={() => confirmRemoveItem(compra.id, compra.name)}
+            >
               X
             </button>
           </div>
