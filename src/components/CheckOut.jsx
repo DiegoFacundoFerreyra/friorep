@@ -107,7 +107,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import EmptyCart from "./EmptyCart";
-import { createOrder } from "../service/api";
+import { createOrderMock } from "../mock/AsyncMock";
 
 const CheckOut = () => {
   const [buyer, setBuyer] = useState({});
@@ -152,7 +152,7 @@ const CheckOut = () => {
     };
 
     try {
-      const res = await createOrder(orden);
+      const res = await createOrderMock(orden);
 
       setOrderID(res.id);
       clearCart();
@@ -175,7 +175,6 @@ const CheckOut = () => {
     }
   };
 
-  // 🧺 Evita entrar al checkout con carrito vacío
   if (!cart.length && !orderID) {
     return <EmptyCart />;
   }

@@ -27,20 +27,15 @@
 //Ejemplo típico:
 //<CartWidget counter={cart.length} />
 
-const CartWidget = (props) => {
+const CartWidget = ({ counter }) => {
   return (
     <div>
-      <span>
-        <a href="/">
-          <img
-            src="../carrito.png"
-            alt="Carrito"
-            name="Carrito"
-            style={{ width: "40px", height: "40px" }}
-          />
-        </a>
-      </span>
-      <small className="cart-counter"> {props.counter}</small>
+      <img
+        src="/carrito.png"
+        alt="Carrito"
+        style={{ width: "40px", height: "40px" }}
+      />
+      <small className="cart-counter">{counter}</small>
     </div>
   );
 };

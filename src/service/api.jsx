@@ -1,6 +1,6 @@
-// src/service/api.js
+/* // src/service/api.js
 
-const API_URL = "https://tu-api.com"; // después lo cambiás por la real
+const API_URL = "https://rickandmortyapi.com/api/character";
 
 // 🔹 Obtener TODOS los productos
 export const getProducts = async () => {
@@ -45,3 +45,6 @@ export const createOrder = async (order) => {
 
   return response.json();
 };
+
+export default Api;
+ */

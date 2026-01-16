@@ -154,7 +154,7 @@ const ItemDetail = ({ detalle }) => {
             Volver al catálogo
           </Link>
         ) : (
-          <ItemCount stock={stockActual} ondAdd={onAdd} />
+          <ItemCount stock={stockActual} onAdd={onAdd} />
         )}
       </div>
     </div>

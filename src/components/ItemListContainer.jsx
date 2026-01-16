@@ -67,7 +67,7 @@
 import "../css/ItemListContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts, getProductsByCategory } from "../service/api";
+import { getProducts, getProductsByCategory } from "../mock/AsyncMock";
 import ItemList from "./ItemList";
 
 const ItemListContainer = ({ mensaje }) => {

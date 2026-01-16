@@ -101,7 +101,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import LoaderComponent from "./LoaderComponents";
-import { getProductById } from "../service/api";
+import { getOneProduct } from "../mock/AsyncMock";
 
 const ItemDetailContainer = () => {
   const [detalle, setDetalle] = useState(null);
@@ -114,8 +114,9 @@ const ItemDetailContainer = () => {
     const fetchProduct = async () => {
       setLoading(true);
       setInvalid(false);
+
       try {
-        const data = await getProductById(id);
+        const data = await getOneProduct(id);
         setDetalle(data);
       } catch (error) {
         console.log(error);
