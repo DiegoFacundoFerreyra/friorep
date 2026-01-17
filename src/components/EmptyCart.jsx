@@ -36,7 +36,7 @@ import "../css/EmptyCart.css";
 
 const EmptyCart = () => {
   return (
-    <div>
+    <div className="empty-cart-container">
       <h2>Tu carrito esta vacio!😱</h2>
       <h3>
         <Link to="/">Te invitamos a ver nuestros productos...</Link>

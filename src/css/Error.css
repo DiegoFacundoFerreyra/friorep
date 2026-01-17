@@ -1,8 +1,35 @@
+.error-container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #e6f6ff, #ffffff);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.error-container h2 {
+  font-size: 72px;
+  color: red;
+  margin-bottom: 2rem;
+}
+
 .error-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border: 2px solid green;
-  border-radius: 8px;
-  background-color: transparent;
-  cursor: pointer;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2e8b57; /* verde éxito */
+  border: 3px solid #2e8b57;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.error-btn:hover {
+  background-color: #2e8b57;
+  color: white;
+  box-shadow: 0 4px 14px rgba(46, 139, 87, 0.3);
+  transform: scale(1.05);
 }

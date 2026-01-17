@@ -39,13 +39,9 @@ import { Link } from "react-router-dom";
 import "../css/Error.css";
 const Error = () => {
   return (
-    <div>
-      <h2 style={{ fontSize: "80px" }}>Segmento inexistente!! 🤷‍♂️</h2>
-      <Link
-        to="/"
-        className="error-btn"
-        style={{ textDecoration: "none", color: "green", fontSize: "40px" }}
-      >
+    <div className="error-container">
+      <h2>Segmento inexistente!! 🤷‍♂️</h2>
+      <Link to="/" className="error-btn">
         Volver a la pagina principal...
       </Link>
     </div>

@@ -27,6 +27,8 @@
 //Ejemplo típico:
 //<CartWidget counter={cart.length} />
 
+import "../css/CartWidget.css";
+
 const CartWidget = ({ counter }) => {
   return (
     <div>

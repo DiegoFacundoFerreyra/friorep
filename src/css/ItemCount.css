@@ -1,0 +1,89 @@
+.item-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.item-count-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-num {
+  min-width: 44px;
+  height: 44px;
+  background-color: #e0f4ff;
+  color: #0a3d62;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-mas,
+.btn-res {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-res {
+  background-color: #b3e5fc;
+  color: #01579b;
+}
+
+.btn-res:hover:not(:disabled) {
+  background-color: #81d4fa;
+  transform: scale(1.05);
+}
+
+.btn-mas {
+  background-color: #4fc3f7;
+  color: #003c8f;
+}
+
+.btn-mas:hover {
+  background-color: #29b6f6;
+  transform: scale(1.05);
+}
+
+.btn-res:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+.btn-add {
+  width: 100%;
+  max-width: 260px;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: none;
+  background-color: #0288d1;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background-color: #0277bd;
+  transform: scale(1.03);
+}
+
+.btn-add:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}

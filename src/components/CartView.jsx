@@ -82,10 +82,21 @@ const CartView = () => {
     if (producto.quantity > 1) {
       addItem(producto, -1);
     } else {
-      removeItem(producto.id);
+      Swal.fire({
+        title: "¿Eliminar producto?",
+        text: "Este producto se quitará del carrito",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeItem(producto.id);
+          Swal.fire("Producto eliminado", "", "success");
+        }
+      });
     }
   };
-
   return (
     <div className="cart-container">
       <h2 className="cart-title"> 🛒Tu compra</h2>

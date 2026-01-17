@@ -68,7 +68,7 @@ const ItemCount = ({ stock, onAdd }) => {
   };
 
   const restar = () => {
-    if (count > 0) {
+    if (count > 1) {
       setCount(count - 1);
     }
   };
@@ -77,13 +77,15 @@ const ItemCount = ({ stock, onAdd }) => {
     <>
       {stock > 0 ? (
         <div className="item-count">
-          <button className="btn-mas" onClick={sumar}>
-            +
-          </button>
-          <span className="btn-num">{count}</span>
-          <button className="btn-res" onClick={restar}>
-            -
-          </button>
+          <div className="item-count-controls">
+            <button className="btn-res" onClick={restar} disabled={count <= 1}>
+              -
+            </button>
+            <span className="btn-num">{count}</span>
+            <button className="btn-mas" onClick={sumar}>
+              +
+            </button>
+          </div>
           <button
             className="btn-add"
             disabled={stock === 0}

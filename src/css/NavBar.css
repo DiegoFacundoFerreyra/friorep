@@ -1,40 +1,53 @@
 .nav-container {
   background-color: skyblue;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
   height: 100px;
+  box-sizing: border-box;
 }
 
+/* Logos */
+.nav-container img {
+  flex-shrink: 0;
+}
+
+/* Links de categorías */
 .links {
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: blue;
-  font-size: 32px;
-  cursor: pointer;
+  font-size: 20px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.links:hover {
+  color: #005f99;
 }
 
 .active {
-  text-decoration: none;
   color: whitesmoke;
-  font-size: 32px;
-  cursor: pointer;
-}
-
-.contador {
-  text-decoration: none;
-  color: black;
   font-size: 20px;
-  cursor: pointer;
 }
 
+/* Empuja carrito + fabra hacia la derecha */
+.nav-container > :nth-last-child(3) {
+  margin-left: auto;
+}
+
+/* Contenedor del carrito */
+.contador {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+/* WhatsApp flotante (no toca navbar) */
 .img-wh {
   width: 80px;
   height: 80px;
-  outline: none;
   position: fixed;
   bottom: 4px;
   right: 4px;

@@ -1,0 +1,109 @@
+.checkout-container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #e6f6ff, #ffffff);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.checkout-container h3 {
+  text-align: center;
+  color: #005f99;
+  font-size: 32px;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-container form {
+  background-color: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 120, 180, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.checkout-container input {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #b3e5ff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.checkout-container input:focus {
+  border-color: #3399ff;
+}
+
+.checkout-container button {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #3399ff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.checkout-container button:hover {
+  background-color: #1e7edb;
+  transform: scale(1.02);
+}
+
+.checkout-container button:disabled {
+  background-color: #9ecfff;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.checkout-error {
+  color: #d62828;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.order-complete {
+  background-color: #e6fff2;
+  border: 2px solid #2ecc71;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(46, 204, 113, 0.25);
+}
+
+.order-complete p {
+  font-size: 20px;
+  color: #155724;
+  margin-bottom: 1rem;
+}
+
+.order-complete strong {
+  color: #0b5ed7;
+}
+
+.order-complete a {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  background-color: #3399ff;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.order-complete a:hover {
+  background-color: #1e7edb;
+}
