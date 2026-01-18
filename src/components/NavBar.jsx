@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const NavBar = () => {
-  const { cart } = useContext(CartContext);
+  const { totalQuantity } = useContext(CartContext);
   return (
     <nav className="nav-container">
       <NavLink to="/">
@@ -34,7 +34,7 @@ const NavBar = () => {
       />
       {
         <NavLink className="contador" to="/cart">
-          <CartWidget counter={cart.length} />
+          <CartWidget counter={totalQuantity()} />
         </NavLink>
       }
       <a

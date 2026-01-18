@@ -73,6 +73,14 @@ const ItemCount = ({ stock, onAdd }) => {
     }
   };
 
+  const handleChange = (e) => {
+    let value = Number(e.target.value);
+
+    if (value < 1) value = 1;
+    if (value > stock) value = stock;
+    setCount(value);
+  };
+
   return (
     <>
       {stock > 0 ? (
@@ -81,7 +89,14 @@ const ItemCount = ({ stock, onAdd }) => {
             <button className="btn-res" onClick={restar} disabled={count <= 1}>
               -
             </button>
-            <span className="btn-num">{count}</span>
+            <input
+              type="number"
+              className="btn-num-input"
+              value={count}
+              min={1}
+              max={stock}
+              onChange={handleChange}
+            />
             <button className="btn-mas" onClick={sumar}>
               +
             </button>

@@ -1,21 +1,53 @@
-h1 {
-  color: black;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.item-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.text-succes {
+  font-size: 2.4rem;
+  color: #0b5ed7;
+  margin-bottom: 1.5rem;
   text-align: center;
-  align-items: center;
-  margin-top: 20px;
+  font-weight: 600;
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  h1 {
-    font-size: 26px;
-    margin-top: 18px;
+.search-bar-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.item-list-container .item-list-container,
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.no-results {
+  font-size: 1.4rem;
+  color: #6c757d;
+  margin-top: 2rem;
+  text-align: center;
+}
+.card-item {
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 22px;
-    margin-top: 16px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

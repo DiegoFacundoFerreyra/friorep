@@ -87,3 +87,32 @@
   background-color: #90caf9;
   cursor: not-allowed;
 }
+
+.btn-num-input {
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #4fc3f7;
+  border-radius: 8px;
+  padding: 4px;
+  color: #01579b;
+  outline: none;
+}
+
+.btn-num-input:focus {
+  border-color: #26c6da;
+  box-shadow: 0 0 6px rgba(38, 198, 218, 0.6);
+}
+
+/* Quitar flechas en Chrome, Edge, Safari */
+.btn-num-input::-webkit-outer-spin-button,
+.btn-num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Quitar flechas en Firefox */
+.btn-num-input {
+  -moz-appearance: textfield;
+}

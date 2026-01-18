@@ -69,27 +69,41 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts, getProductsByCategory } from "../mock/AsyncMock";
 import ItemList from "./ItemList";
+import SearchBar from "./SearchBar";
+/* import SearchBar from "..css/SearBar.css"; */
 
 const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
   const { type, subcategory } = useParams();
 
   useEffect(() => {
     if (type && subcategory) {
-      getProductsByCategory(type, subcategory)
-        .then((res) => setData(res))
-        .catch((error) => console.log(error));
+      getProductsByCategory(type, subcategory).then(setData).catch(console.log);
     } else {
-      getProducts()
-        .then((res) => setData(res))
-        .catch((error) => console.log(error));
+      getProducts().then(setData).catch(console.log);
     }
   }, [type, subcategory]);
+
+  // 🔍 FILTRO INTELIGENTE
+  const filteredData = data.filter((prod) => {
+    const search = query.toLowerCase();
+
+    //SE UNA ?. POR SI ALGUN PRODUCTO NO TIENE ESE CAMPO, REACT NO ROMPE
+    return (
+      prod.name.toLowerCase().includes(search) ||
+      prod.brand?.toLowerCase().includes(search) ||
+      prod.category?.toLowerCase().includes(search) ||
+      prod.description?.toLowerCase().includes(search) ||
+      prod.tags?.some((tag) => tag.toLowerCase().includes(search))
+    );
+  });
 
   return (
     <div>
       <h2 className="text-succes">{mensaje}</h2>
-      <ItemList data={data} />
+      <SearchBar onSearch={setQuery} />
+      <ItemList data={filteredData} />
     </div>
   );
 };

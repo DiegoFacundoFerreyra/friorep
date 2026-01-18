@@ -1,4 +1,4 @@
-.nav-container {
+/* .nav-container {
   background-color: skyblue;
   display: flex;
   align-items: center;
@@ -8,12 +8,10 @@
   box-sizing: border-box;
 }
 
-/* Logos */
 .nav-container img {
   flex-shrink: 0;
 }
 
-/* Links de categorías */
 .links {
   text-decoration: none;
   color: blue;
@@ -29,14 +27,13 @@
 .active {
   color: whitesmoke;
   font-size: 20px;
-}
+} */
 
 /* Empuja carrito + fabra hacia la derecha */
-.nav-container > :nth-last-child(3) {
+/* .nav-container > :nth-last-child(3) {
   margin-left: auto;
 }
 
-/* Contenedor del carrito */
 .contador {
   display: flex;
   align-items: center;
@@ -44,11 +41,89 @@
   position: relative;
 }
 
-/* WhatsApp flotante (no toca navbar) */
 .img-wh {
   width: 80px;
   height: 80px;
   position: fixed;
   bottom: 4px;
   right: 4px;
+} */
+
+/* ===== NAVBAR ===== */
+.nav-container {
+  background-color: skyblue;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+/* empuja todo lo que sigue hacia la derecha */
+.nav-container > :first-child {
+  margin-right: auto;
+}
+
+/* ===== LINKS ===== */
+.links {
+  text-decoration: none;
+  color: #0b3c5d;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.links:hover {
+  color: #ffffff;
+}
+
+.active {
+  color: white;
+}
+
+/* ===== CONTENEDOR DEL CARRITO ===== */
+.contador {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ===== IMAGEN DEL CARRITO ===== */
+.contador img {
+  width: 42px;
+  height: 42px;
+}
+
+/* ===== BURBUJA CONTADOR ===== */
+.cart-counter {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #0077b6;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== WHATSAPP ===== */
+.img-wh {
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.img-wh:hover {
+  transform: scale(1.1);
 }
