@@ -70,7 +70,6 @@ import { useParams } from "react-router-dom";
 import { getProducts, getProductsByCategory } from "../mock/AsyncMock";
 import ItemList from "./ItemList";
 import SearchBar from "./SearchBar";
-/* import SearchBar from "..css/SearBar.css"; */
 
 const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);

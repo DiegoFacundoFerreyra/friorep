@@ -1,12 +1,16 @@
-import "../css/SearBar.css";
+import "../css/SearchBar.css";
 
 const SearchBar = ({ onSearch }) => {
   return (
-    <input
-      type="text"
-      placeholder="Buscar producto..."
-      onChange={(e) => onSearch(e.target.value)}
-    />
+    <div className="search-bar-wrapper">
+      <div className="search-bar-container">
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+          onChange={(e) => onSearch(e.target.value)}
+        />
+      </div>
+    </div>
   );
 };
 

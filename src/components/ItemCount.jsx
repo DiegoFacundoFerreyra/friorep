@@ -74,11 +74,24 @@ const ItemCount = ({ stock, onAdd }) => {
   };
 
   const handleChange = (e) => {
-    let value = Number(e.target.value);
+    const value = e.target.value;
+    // Permitir que quede vacío mientras escribe
+    if (value === "") {
+      setCount("");
+      return;
+    }
 
-    if (value < 1) value = 1;
-    if (value > stock) value = stock;
-    setCount(value);
+    const numberValue = Number(value);
+
+    if (numberValue < 1) return;
+    if (numberValue > stock) return;
+    setCount(numberValue);
+  };
+
+  const handleBlur = () => {
+    if (count === "" || count < 1) {
+      setCount(1);
+    }
   };
 
   return (
@@ -96,6 +109,7 @@ const ItemCount = ({ stock, onAdd }) => {
               min={1}
               max={stock}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
             <button className="btn-mas" onClick={sumar}>
               +
