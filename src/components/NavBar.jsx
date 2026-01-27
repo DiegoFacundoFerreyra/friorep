@@ -15,18 +15,17 @@ const NavBar = () => {
           alt="FrioRep"
         />
       </NavLink>
-      <NavLink className="links" to="/category/aires/convencional">
-        Aires acondicionados ON/OFF, convencionales.
-      </NavLink>
-      <NavLink className="links" to="/category/aires/inverter">
-        Aires acondicionados Inverter.
-      </NavLink>
-      <NavLink className="links" to="/category/aires/black">
-        Aires acondicionados Black Inverter.
-      </NavLink>
-      <NavLink className="links" to="/category/aires/pisotecho">
-        Aires acondicionados tipo piso/techo.
-      </NavLink>
+      <div className="dropdown">
+        <span className="links">Aires acondicionados ▾</span>
+        <div className="dropdown-content">
+          <NavLink to="/category/aires/convencional">
+            Convencionales u On/Off
+          </NavLink>
+          <NavLink to="/category/aires/inverter">Inverter</NavLink>
+          <NavLink to="/category/aires/black">Black Inverter</NavLink>
+          <NavLink to="/category/aires/pisotecho">Piso/techo</NavLink>
+        </div>
+      </div>
       <img
         style={{ width: "120px", height: "64px" }}
         src="/fabra.png"
@@ -38,7 +37,7 @@ const NavBar = () => {
         </NavLink>
       }
       <a
-        href="https://wa.me/34168201356"
+        href="https://wa.me/3416820135"
         target="_blank"
         rel="noopener noreferrer"
       >

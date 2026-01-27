@@ -83,7 +83,6 @@
   color: white;
 }
 
-/* ===== CONTENEDOR DEL CARRITO ===== */
 .contador {
   position: relative;
   display: flex;
@@ -91,13 +90,11 @@
   text-decoration: none;
 }
 
-/* ===== IMAGEN DEL CARRITO ===== */
 .contador img {
   width: 42px;
   height: 42px;
 }
 
-/* ===== BURBUJA CONTADOR ===== */
 .cart-counter {
   position: absolute;
   top: -6px;
@@ -113,7 +110,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-/* ===== WHATSAPP ===== */
 .img-wh {
   width: 70px;
   height: 70px;
@@ -126,4 +122,36 @@
 
 .img-wh:hover {
   transform: scale(1.1);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #f4fbff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  display: none;
+  min-width: 200px;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #0b3c5d;
+  text-decoration: none;
+  font-size: 16px;
+}
+.dropdown-content a:hover {
+  background: #48cae4;
+  color: white;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
